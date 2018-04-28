@@ -114,9 +114,9 @@ def BFnest(plank_object,Lengtes_list):
  
 def MakeList(input_list, first_part_list, second_part_list, output_list, depth):
     depth=depth+1
+    
     Length_of_input = len(input_list)
-    first_part_list=[] # make empty
-    second_part_list=[] # make empty
+    
     for i in range(Length_of_input):
         print (depth*'.','depth:{}'.format(depth))
         print (depth*'.','loop:{}'.format(i))
@@ -125,6 +125,7 @@ def MakeList(input_list, first_part_list, second_part_list, output_list, depth):
         second_part_list=list(input_list)
         for j in first_part_list:
             second_part_list.remove(j)
+        second_part_list.append(0)
         print (depth*'.','1st part list:')
         print (depth*'.',first_part_list)
         print (depth*'.','2nd part list:')
@@ -135,9 +136,10 @@ def MakeList(input_list, first_part_list, second_part_list, output_list, depth):
         #output_list[i].append(input_list[i])
         output_list[i].append(first_part_list)
         if second_part_list:
-            MakeList(second_part_list,[],[],output_list,depth)
-
-    
+            MakeList(second_part_list, first_part_list, [], output_list, depth)
+        first_part_list=[] # make empty
+        second_part_list=[] # make empty
+    #2do; remove 0's from output
     print ('output', output_list)
 
 
