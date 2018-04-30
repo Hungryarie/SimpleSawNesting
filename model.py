@@ -123,24 +123,29 @@ def MakeList(input_list, first_part_list, second_part_list, output_list, depth):
         
         first_part_list.append(input_list[i])
         second_part_list=list(input_list)
+        while 0 in first_part_list:
+            first_part_list.remove(0)
+
         for j in first_part_list:
-            second_part_list.remove(j)
-        second_part_list.append(0)
+            if j in second_part_list:
+                second_part_list.remove(j)
+        #second_part_list.append(0)
         print (depth*'.','1st part list:')
         print (depth*'.',first_part_list)
         print (depth*'.','2nd part list:')
         print (depth*'.',second_part_list)
         #MakeList(second_part_list,[],[],output_list,depth)
 
-        output_list.append([]) #voeg lijst toe
+        #output_list.append([]) #voeg lijst toe
         #output_list[i].append(input_list[i])
-        output_list[i].append(first_part_list)
-        if second_part_list:
+        output_list.append(list(first_part_list))
+        print ('output: ', output_list)
+        if second_part_list and max(second_part_list)>0:
             MakeList(second_part_list, first_part_list, [], output_list, depth)
         first_part_list=[] # make empty
         second_part_list=[] # make empty
     #2do; remove 0's from output
-    print ('output', output_list)
+    print ('output end: ', output_list)
 
 
 def RecurringLoopNest(plank_object, max_loops, loop_i, l_list, best_nest_tot, best_nest_list, rec_level):
