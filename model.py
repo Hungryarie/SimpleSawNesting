@@ -113,13 +113,17 @@ def BFnest(plank_object,Lengtes_list):
     return Min_Waste_List #[20,43,29]
  
 def MakeList(input_list, first_part_list, second_part_list, output_list, depth):
+    "loop door de input_list heen"
     depth=depth+1
-    
+    print ('\n') 
+    print (depth*'.','makelist >>>>>')
+
     Length_of_input = len(input_list)
     
     for i in range(Length_of_input):
         print (depth*'.','depth:{}'.format(depth))
         print (depth*'.','loop:{}'.format(i))
+        print (depth*'.','input:',input_list)
         
         first_part_list.append(input_list[i])
         second_part_list=list(input_list)
@@ -136,14 +140,16 @@ def MakeList(input_list, first_part_list, second_part_list, output_list, depth):
         print (depth*'.',second_part_list)
         #MakeList(second_part_list,[],[],output_list,depth)
 
-        #output_list.append([]) #voeg lijst toe
-        #output_list[i].append(input_list[i])
+        first_part_list.sort()
         output_list.append(list(first_part_list))
         print ('output: ', output_list)
         if second_part_list and max(second_part_list)>0:
             MakeList(second_part_list, first_part_list, [], output_list, depth)
-        first_part_list=[] # make empty
-        second_part_list=[] # make empty
+            first_part_list=[] # make empty
+        #print('@',first_part_list)
+        #first_part_list=first_part_list[:-1]
+        #print('#',first_part_list)
+            second_part_list=[] # make empty
     #2do; remove 0's from output
     print ('output end: ', output_list)
 

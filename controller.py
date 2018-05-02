@@ -3,13 +3,13 @@ from model import Zaagplan, Plank, MakeList#, BFnest
 print ('\n\nstartTEST')
 
 #plank_lengtes= [244.0, 242.0, 242.0, 242.0, 181.0, 129.0, 115.0, 97.4, 97.4, 97.4, 97.4, 97.4, 97.4, 85.0, 85.0, 80.5, 80.5, 80.5, 80.5, 80.5, 80.5, 43.0, 43.0, 43.0]
-plank_lengtes= [1,2,3]
+plank_lengtes= [1,2,3,4]
 plank_lengte= 250 #cm
 zaag_dikte=0.3 #cm
 
 output_list=[]
 MakeList(plank_lengtes, [], [], output_list,0)
-print (output_list)
+print ('final outputlist: ',output_list)
 
 #print ('plank lengte = ', plank_lengte, " cm")
 print ('zaag dikte = ', (zaag_dikte*10), " mm")
