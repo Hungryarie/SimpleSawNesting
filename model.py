@@ -116,7 +116,7 @@ def MakeList(input_list, first_part_list, second_part_list, output_list, depth):
     "loop door de input_list heen"
     depth=depth+1
     print ('\n') 
-    print (depth*'.','makelist >>>>>')
+    print (depth*'.','makelist > >>>>>')
 
     Length_of_input = len(input_list)
     
